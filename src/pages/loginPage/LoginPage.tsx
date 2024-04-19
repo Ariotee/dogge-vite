@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { Input } from '@common/fields';
+import { useNavigate } from 'react-router-dom';
+
+import { Input, PasswordInput } from '@common/fields';
 import { Button } from '@common/buttons';
 
 import style from './loginpage.module.css';
@@ -33,6 +35,7 @@ interface FormErrors {
 }
 
 export const LoginPage: React.FC = () => {
+	const navigate = useNavigate();
 	const [formValues, setFormValues] = React.useState({ username: '', password: '' });
 	const [formErrors, setFormErrors] = React.useState<FormErrors>({
 		username: null,
@@ -50,7 +53,7 @@ export const LoginPage: React.FC = () => {
 						<Input
 							type='text'
 							value={formValues.username}
-							placeholder='Username'
+							label='Username'
 							onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
 								const username = event.target.value;
 								setFormValues({ ...formValues, username });
@@ -66,10 +69,9 @@ export const LoginPage: React.FC = () => {
 					</div>
 
 					<div className={style.input_container}>
-						<Input
+						<PasswordInput
 							value={formValues.password}
-							placeholder='Password'
-							type='password'
+							label='Password'
 							onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
 								const password = event.target.value;
 								setFormValues({ ...formValues, password });
@@ -89,7 +91,7 @@ export const LoginPage: React.FC = () => {
 					</div>
 				</div>
 
-				<div className={style.sign_up_container}>
+				<div className={style.sign_up_container} onClick={() => navigate('/registration')}>
 					<span className={style.sign_up_span}>Create new account</span>
 				</div>
 			</div>
