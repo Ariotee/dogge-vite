@@ -1,0 +1,18 @@
+.button {
+	background-color: #f5c678;
+	border-radius: 5px;
+	padding: 12px 84px;
+	color: #fff;
+	font-weight: 600;
+	font-size: 14px;
+	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);
+	transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.05);
+}
+
+.button:active {
+	background-color: rgba(245, 198, 120, 0.7);
+}
