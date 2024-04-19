@@ -25,9 +25,10 @@
 		"paths": {
 			"@/*": ["src/*"],
 			"@assets/*": ["src/assets/*"],
-			"@common/*": ["src/common/*"]
+			"@common/*": ["src/common/*"],
+			"@pages/*": ["src/pages/*"]
 		}
 	},
-	"include": ["src/*"],
+	"include": ["src/*", "**/*.d.ts"],
 	"references": [{ "path": "./tsconfig.node.json" }]
 }
