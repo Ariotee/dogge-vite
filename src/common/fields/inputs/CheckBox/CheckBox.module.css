@@ -1,0 +1,41 @@
+.checkbox_container {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+
+.checkbox {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+}
+
+.custom_checkbox {
+	width: 15px;
+	height: 15px;
+	border: 2px solid rgba(245, 198, 120, 0.7);
+	background: transparent;
+	border-radius: 5px;
+}
+
+.custom_checkbox:hover {
+	border-color: rgba(245, 198, 120, 1);
+}
+
+.checkbox:checked ~ .custom_checkbox {
+	border: none;
+	background-position: center;
+	background-image: url('@/assets/images/checkbox.svg');
+}
+
+.label {
+	line-height: 1;
+	user-select: none;
+	color: #000;
+	margin-left: 0.35rem;
+	font-size: 0.85rem;
+}

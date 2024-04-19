@@ -1,7 +1,7 @@
 .button {
 	background-color: #f5c678;
 	border-radius: 5px;
-	padding: 12px 84px;
+	padding: 15.5px 102.5px;
 	color: #fff;
 	font-weight: 600;
 	font-size: 14px;
@@ -15,4 +15,52 @@
 
 .button:active {
 	background-color: rgba(245, 198, 120, 0.7);
+}
+
+.dot-flashing {
+	position: relative;
+	width: 6px;
+	height: 6px;
+	border-radius: 5px;
+	background-color: #fff;
+	color: #fff;
+	animation: dot-flashing 0.5s infinite linear alternate;
+	animation-delay: 0.25s;
+}
+.dot-flashing::before,
+.dot-flashing::after {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	top: 0;
+}
+.dot-flashing::before {
+	left: -15px;
+	width: 6px;
+	height: 6px;
+	border-radius: 5px;
+	background-color: #fff;
+	color: #fff;
+	animation: dot-flashing 0.5s infinite linear alternate;
+	animation-delay: 0s;
+}
+.dot-flashing::after {
+	left: 15px;
+	width: 6px;
+	height: 6px;
+	border-radius: 5px;
+	background-color: #fff;
+	color: #fff;
+	animation: dot-flashing 0.5s infinite linear alternate;
+	animation-delay: 0.5s;
+}
+
+@keyframes dot-flashing {
+	0% {
+		background-color: rgba(255, 255, 255, 0.5);
+	}
+	50%,
+	100% {
+		background-color: #fff;
+	}
 }

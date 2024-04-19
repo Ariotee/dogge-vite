@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
-import { Input, PasswordInput } from '@common/fields';
+import { Input, PasswordInput, CheckBox } from '@common/fields';
 import { Button } from '@common/buttons';
 
 import style from './loginpage.module.css';
@@ -36,7 +36,11 @@ interface FormErrors {
 
 export const LoginPage: React.FC = () => {
 	const navigate = useNavigate();
-	const [formValues, setFormValues] = React.useState({ username: '', password: '' });
+	const [formValues, setFormValues] = React.useState({
+		username: '',
+		password: '',
+		notMyDevice: false,
+	});
 	const [formErrors, setFormErrors] = React.useState<FormErrors>({
 		username: null,
 		password: null,
@@ -86,8 +90,19 @@ export const LoginPage: React.FC = () => {
 						/>
 					</div>
 
+					<div className={style.input_container}>
+						<CheckBox
+							checked={formValues.notMyDevice}
+							label='This is not my device'
+							onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+								const notMyDevice = event.target.checked;
+								setFormValues({ ...formValues, notMyDevice });
+							}}
+						/>
+					</div>
+
 					<div>
-						<Button>Sign in</Button>
+						<Button isLoading>Sign in</Button>
 					</div>
 				</div>
 
