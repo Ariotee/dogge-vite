@@ -1,0 +1,6 @@
+.password_toggle_container {
+	position: absolute;
+	top: 17px;
+	right: 8px;
+	cursor: pointer;
+}
